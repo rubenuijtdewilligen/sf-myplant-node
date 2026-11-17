@@ -5,11 +5,11 @@
 
 ## Activities
 
-- [ ] Retrieve all upcoming activities (`GET /activities`).
-- [ ] Retrieve single activity details, form questions, and participants (`GET /activities/{activityId}`).
-- [ ] Sign up or join waitlist for an activity (`POST /activities/{activityId}`).
-- [ ] Remove signup or waitlist registration (`DELETE /activities/{activityId}`).
-- [ ] Drop-in wrappers (`getActivities`, `getActivity`, `joinActivity`, `removeActivity`).
+- [x] Retrieve all upcoming activities (`GET /activities`).
+- [x] Retrieve single activity details, form questions, and participants (`GET /activities/{activityId}`).
+- [x] Sign up or join waitlist for an activity (`POST /activities/{activityId}`).
+- [x] Remove signup or waitlist registration (`DELETE /activities/{activityId}`).
+- [x] Drop-in wrappers (`getActivities`, `getActivity`, `joinActivity`, `removeActivity`).
 
 ## WUDjes
 

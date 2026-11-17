@@ -1,5 +1,15 @@
 import { AuthFlow } from "./auth.js";
-import type { ApiError, ApiStatus, LoginResponse } from "./types.js";
+import { ActivitiesFlow } from "./endpoints/activities.js";
+import type {
+  Activity,
+  ActivitySignup,
+  ActivitySignupResponse,
+  ApiError,
+  ApiStatus,
+  LoginResponse,
+  RemoveRegistration,
+  SingleActivity,
+} from "./types.js";
 
 export class MyPlantApiError extends Error implements ApiError {
   public status?: number;
@@ -19,6 +29,7 @@ export class MyPlantApiError extends Error implements ApiError {
 
 export class MyPlantClient {
   public auth: AuthFlow;
+  public activities: ActivitiesFlow;
 
   public baseUrl: string;
   public token: string | null = null;
@@ -30,6 +41,7 @@ export class MyPlantClient {
     }
 
     this.auth = new AuthFlow(this);
+    this.activities = new ActivitiesFlow(this);
   }
 
   public setToken(token: string | null): void {
@@ -100,6 +112,32 @@ export class MyPlantClient {
     isNetworkError = false,
   ): ApiError {
     return new MyPlantApiError(message, status, isNetworkError);
+  }
+
+  // bastiaanno/my-plant-api drop-in wrappers:
+  public async getActivities(): Promise<Activity[]> {
+    return this.activities.getAll();
+  }
+
+  public async getActivity({
+    activityId,
+  }: {
+    activityId: string;
+  }): Promise<SingleActivity> {
+    return this.activities.getById(activityId);
+  }
+
+  public async joinActivity(
+    id: string,
+    info: ActivitySignup,
+  ): Promise<ActivitySignupResponse> {
+    return this.activities.join(id, info);
+  }
+
+  public async removeActivity(
+    info: RemoveRegistration,
+  ): Promise<{ success: boolean; message?: string }> {
+    return this.activities.remove(info);
   }
 }
 
