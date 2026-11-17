@@ -13,9 +13,9 @@
 
 ## WUDjes
 
-- [ ] Retrieve paginated WUD messages (`GET /wudjes`).
-- [ ] Post a new WUD message (`POST /wudjes`).
-- [ ] Drop-in wrappers (`getWudjes`, `postWudje`).
+- [x] Retrieve paginated WUD messages (`GET /wudjes`).
+- [x] Post a new WUD message (`POST /wudjes`).
+- [x] Drop-in wrappers (`getWudjes`, `postWudje`).
 
 ## Address (Conscribo)
 

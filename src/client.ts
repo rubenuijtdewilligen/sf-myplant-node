@@ -1,5 +1,6 @@
 import { AuthFlow } from "./auth.js";
 import { ActivitiesFlow } from "./endpoints/activities.js";
+import { WudjesFlow } from "./endpoints/wudjes.js";
 import type {
   Activity,
   ActivitySignup,
@@ -7,8 +8,11 @@ import type {
   ApiError,
   ApiStatus,
   LoginResponse,
+  PostWudjeRequest,
+  PostWudjeResponse,
   RemoveRegistration,
   SingleActivity,
+  Wud,
 } from "./types.js";
 
 export class MyPlantApiError extends Error implements ApiError {
@@ -30,6 +34,7 @@ export class MyPlantApiError extends Error implements ApiError {
 export class MyPlantClient {
   public auth: AuthFlow;
   public activities: ActivitiesFlow;
+  public wudjes: WudjesFlow;
 
   public baseUrl: string;
   public token: string | null = null;
@@ -42,6 +47,7 @@ export class MyPlantClient {
 
     this.auth = new AuthFlow(this);
     this.activities = new ActivitiesFlow(this);
+    this.wudjes = new WudjesFlow(this);
   }
 
   public setToken(token: string | null): void {
@@ -138,6 +144,14 @@ export class MyPlantClient {
     info: RemoveRegistration,
   ): Promise<{ success: boolean; message?: string }> {
     return this.activities.remove(info);
+  }
+
+  public async getWudjes(): Promise<Wud[]> {
+    return this.wudjes.getAll();
+  }
+
+  public async postWudje(info: PostWudjeRequest): Promise<PostWudjeResponse> {
+    return this.wudjes.post(info);
   }
 }
 

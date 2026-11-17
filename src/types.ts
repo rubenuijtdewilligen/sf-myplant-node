@@ -116,3 +116,37 @@ export interface RemoveRegistration {
   activityId: string;
   type?: "signup" | "waitlist";
 }
+
+export interface PaginationOptions {
+  page?: number;
+  perPage?: number;
+}
+
+export interface PaginatedResponse<T> {
+  items: T[];
+  page: number;
+  perPage: number;
+  totalItems: number;
+  totalPages: number;
+}
+
+export interface Wud {
+  id: string;
+  message: string;
+  created: string;
+  author: {
+    id: string;
+    name: string;
+    username: string;
+  };
+}
+
+export interface PostWudjeRequest {
+  message: string;
+}
+
+export interface PostWudjeResponse {
+  success: boolean;
+  data?: Wud;
+  message?: string;
+}
