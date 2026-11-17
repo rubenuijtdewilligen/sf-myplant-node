@@ -46,9 +46,9 @@ console.log(details.participants);
 
 Examples for all other endpoints can be found in [/examples](/examples/).
 
-## Drop-in Replacement for my-plant-api-client
+## Drop-in Replacement for my-plant-api
 
-`sf-myplant` exposes the exact same default export and top-level method names as [bastiaanno/my-plant-api-client](https://github.com/bastiaanno/my-plant-api-client):
+`sf-myplant` exposes the exact same default export and top-level method names as [bastiaanno/my-plant-api](https://github.com/bastiaanno/my-plant-api):
 
 ```TypeScript
 import MyPlantClient from "sf-myplant";
