@@ -24,4 +24,4 @@
 
 ## Photo Galleries
 
-- [ ] Retrieve paginated photo galleries (`GET /photo-galleries`).
+- [x] Retrieve paginated photo galleries (`GET /photo-galleries`).

@@ -162,3 +162,11 @@ export interface UpdateAddressResponse {
   success: boolean;
   address: Address;
 }
+
+export interface PhotoGallery {
+  id: string;
+  name: string;
+  link: string;
+  preview: string | null;
+  created: string;
+}

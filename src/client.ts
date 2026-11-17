@@ -1,6 +1,7 @@
 import { AuthFlow } from "./auth.js";
 import { ActivitiesFlow } from "./endpoints/activities.js";
 import { AddressFlow } from "./endpoints/address.js";
+import { GalleriesFlow } from "./endpoints/galleries.js";
 import { WudjesFlow } from "./endpoints/wudjes.js";
 import type {
   Activity,
@@ -37,6 +38,7 @@ export class MyPlantClient {
   public activities: ActivitiesFlow;
   public address: AddressFlow;
   public wudjes: WudjesFlow;
+  public galleries: GalleriesFlow;
 
   public baseUrl: string;
   public token: string | null = null;
@@ -50,6 +52,7 @@ export class MyPlantClient {
     this.auth = new AuthFlow(this);
     this.activities = new ActivitiesFlow(this);
     this.address = new AddressFlow(this);
+    this.galleries = new GalleriesFlow(this);
     this.wudjes = new WudjesFlow(this);
   }
 
