@@ -1,4 +1,5 @@
-import type { ApiError, ApiStatus } from "./types.js";
+import { AuthFlow } from "./auth.js";
+import type { ApiError, ApiStatus, LoginResponse } from "./types.js";
 
 export class MyPlantApiError extends Error implements ApiError {
   public status?: number;
@@ -17,6 +18,8 @@ export class MyPlantApiError extends Error implements ApiError {
 }
 
 export class MyPlantClient {
+  public auth: AuthFlow;
+
   public baseUrl: string;
   public token: string | null = null;
 
@@ -25,6 +28,8 @@ export class MyPlantClient {
     if (token) {
       this.token = token;
     }
+
+    this.auth = new AuthFlow(this);
   }
 
   public setToken(token: string | null): void {
@@ -72,6 +77,13 @@ export class MyPlantClient {
     }
 
     return response.json() as Promise<T>;
+  }
+
+  public async login(
+    username: string,
+    password: string,
+  ): Promise<LoginResponse> {
+    return this.auth.login(username, password);
   }
 
   public getApiStatus(): ApiStatus {
