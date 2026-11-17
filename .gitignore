@@ -1,0 +1,6 @@
+node_modules/
+dist/
+repomix-output.xml
+.myplant-auth.json
+.token
+.env

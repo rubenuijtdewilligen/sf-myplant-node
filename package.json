@@ -1,0 +1,40 @@
+{
+  "name": "sf-myplant",
+  "version": "1.0.0",
+  "description": "Node.js & TypeScript client for the Semper Florens MyPlant API",
+  "homepage": "https://github.com/rubenuijtdewilligen/sf-myplant-node#readme",
+  "bugs": {
+    "url": "https://github.com/rubenuijtdewilligen/sf-myplant-node/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubenuijtdewilligen/sf-myplant-node.git"
+  },
+  "license": "GPL-3.0-or-later",
+  "author": "Ruben Uijtdewilligen <ruben@uijtdewilligenbv.nl>",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "default": "./dist/types.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}
