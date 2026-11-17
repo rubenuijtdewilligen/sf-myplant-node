@@ -150,3 +150,15 @@ export interface PostWudjeResponse {
   data?: Wud;
   message?: string;
 }
+
+export interface Address {
+  street: string;
+  addition?: string;
+  postalCode: string;
+  city: string;
+}
+
+export interface UpdateAddressResponse {
+  success: boolean;
+  address: Address;
+}

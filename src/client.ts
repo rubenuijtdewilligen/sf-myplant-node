@@ -1,5 +1,6 @@
 import { AuthFlow } from "./auth.js";
 import { ActivitiesFlow } from "./endpoints/activities.js";
+import { AddressFlow } from "./endpoints/address.js";
 import { WudjesFlow } from "./endpoints/wudjes.js";
 import type {
   Activity,
@@ -34,6 +35,7 @@ export class MyPlantApiError extends Error implements ApiError {
 export class MyPlantClient {
   public auth: AuthFlow;
   public activities: ActivitiesFlow;
+  public address: AddressFlow;
   public wudjes: WudjesFlow;
 
   public baseUrl: string;
@@ -47,6 +49,7 @@ export class MyPlantClient {
 
     this.auth = new AuthFlow(this);
     this.activities = new ActivitiesFlow(this);
+    this.address = new AddressFlow(this);
     this.wudjes = new WudjesFlow(this);
   }
 

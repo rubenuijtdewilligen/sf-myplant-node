@@ -19,8 +19,8 @@
 
 ## Address (Conscribo)
 
-- [ ] Retrieve member address (`GET /address`).
-- [ ] Update member address (`PATCH /address`).
+- [x] Retrieve member address (`GET /address`).
+- [x] Update member address (`PATCH /address`).
 
 ## Photo Galleries
 
